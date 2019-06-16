@@ -1,9 +1,6 @@
 package array;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 /**
  * 给定两个数组，编写一个函数来计算它们的交集。
@@ -21,7 +18,7 @@ public class Intersect {
         int[] nums1 = {43, 85, 49, 2, 83, 2, 39, 99, 15, 70, 39, 27, 71, 3, 88, 5, 19, 5, 68, 34, 7, 41, 84, 2, 13, 85, 12, 54, 7, 9, 13, 19, 92};
         int[] nums2 = {10, 8, 53, 63, 58, 83, 26, 10, 58, 3, 61, 56, 55, 38, 81, 29, 69, 55, 86, 23, 91, 44, 9, 98, 41, 48, 41, 16, 42, 72, 6, 4, 2, 81, 42, 84, 4, 13};
 
-        intersect3(nums1, nums2);
+        intersect4(nums1, nums2);
 
     }
 
@@ -106,13 +103,13 @@ public class Intersect {
         Arrays.sort(nums2);
 
         int[] res = new int[nums1.length];
-        int i = 0, j = 0, k=0;
-        while (i<nums1.length && j <nums2.length){
-            if (nums1[i] == nums2[j]){
+        int i = 0, j = 0, k = 0;
+        while (i < nums1.length && j < nums2.length) {
+            if (nums1[i] == nums2[j]) {
                 res[k++] = nums1[i];
                 i++;
                 j++;
-            } else if (nums1[i] < nums2[j]){
+            } else if (nums1[i] < nums2[j]) {
                 i++;
             } else {
                 j++;
@@ -125,7 +122,37 @@ public class Intersect {
 
     /*
     还有一个方法用map的键值对记录值和次数
-    不想写了!
+    先用Hashmap记录第一个数组中的元素【放在key】，和出现的次数【放在value】。
+    然后再遍历第二个数组，如果找到对用元素&&对应HashMap中的value不为0，
+    则添加这个元素到list中等下放到数组中，同时，HashMap中的value值减一，表示已经找到一个相同的了。
+    最后的话，将list中的值取出来，放到数组中返回
      */
+    public static int[] intersect4(int[] nums1, int[] nums2) {
+
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums1.length; i++) {
+            if (map.containsKey(nums1[i])) {
+                map.put(nums1[i], map.get(nums1[i]) + 1);
+            } else
+                map.put(nums1[i], 1);
+        }
+
+        List<Integer> list = new ArrayList<Integer>();
+        for (int i = 0; i < nums2.length; i++) {
+            if (map.containsKey(nums2[i]) && map.get(nums2[i]) != 0){
+                list.add(nums2[i]);
+                map.put(nums2[i], map.get(nums2[i]) - 1);
+            }
+        }
+
+        //最终结果list转数组
+        int[] res = new int[list.size()];
+        int i = 0;
+        for (int num : list) {
+            res[i++] = num;
+        }
+        System.out.println(Arrays.toString(res));
+        return res;
+    }
 
 }
