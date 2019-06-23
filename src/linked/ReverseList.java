@@ -17,24 +17,10 @@ public class ReverseList {
 
     public static void main(String[] args) {
         ListNode head = new ListNode(1);
-        set(head, 4);
+        head.set(4);
 
         ListNode res = reverseList3(head);
-        print(res);
-    }
-    public static void print(ListNode head){
-        System.out.print(head.val);
-        if (head.next != null){
-            print(head.next);
-        }
-    }
-
-    //递增n个
-    public static void set(ListNode head, int i){
-        if(i>0){
-            set(head.next = new ListNode(head.val + 1 ), --i);
-        } else
-        head.next = null;
+        res.print();
     }
 
     /*
