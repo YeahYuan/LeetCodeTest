@@ -10,7 +10,7 @@ package others;
     如果多次调用这个函数，你将如何优化你的算法？
  * Created by lll on 19/8/17.
  */
-public class reverseBits {
+public class ReverseBits {
     // 一开始想用常规方法依次首位交换1,但int和char无法转换,遂放弃;还是要用位运算
 
     /*方法一:

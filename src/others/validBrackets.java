@@ -10,7 +10,7 @@ import java.util.Stack;
  注意空字符串可被认为是有效字符串。
  * Created by lll on 19/8/17.
  */
-public class validBrackets {
+public class ValidBrackets {
     /*
     先进后出用stack
     一开始打算用map为不同类型的括号分别维护一个单独的计数器
