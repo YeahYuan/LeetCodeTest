@@ -61,15 +61,17 @@ public class ReverseList {
     法二:官方迭代法(都好难懂啊啊啊)
     在遍历列表时，将当前节点的 next 指针改为指向前一个元素。由于节点没有引用其上一个节点，因此必须事先存储其前一个元素。
     在更改引用之前，还需要另一个指针来存储下一个节点。不要忘记在最后返回新的头引用！
+
+    头插法?把当前节点的next修改指向头节点
      */
     public static ListNode reverseList2(ListNode head) {
         ListNode prev = null;
         ListNode curr = head;
         while (curr != null) {
             ListNode nextTemp = curr.next;
-            curr.next = prev;//关键:下一个指向前一个
-            prev = curr;
-            curr = nextTemp;
+            curr.next = prev;//关键:当前next指向前一个
+            prev = curr;//指针前进1
+            curr = nextTemp;//指针前进1
         }
         return prev;
 
