@@ -11,7 +11,7 @@ package others;
  * Created by lll on 19/8/17.
  */
 public class ReverseBits {
-    // 一开始想用常规方法依次首位交换1,但int和char无法转换,遂放弃;还是要用位运算
+    // 一开始想用常规方法依次首尾交换,但int和char无法转换,遂放弃;还是要用位运算
 
     /*方法一:
     1.将给定的二进制数,由低到高位逐个取出
