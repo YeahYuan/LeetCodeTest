@@ -2,7 +2,6 @@ package string;
 
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * 有效的字母异位词
