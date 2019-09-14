@@ -92,6 +92,7 @@ public class GroupAnagrams {
         int[] count = new int[26];
         for (String s : strs){
             Arrays.fill(count, 0);//把数组初始化为0
+            // TODO: 19/9/14  这一步不是多余吗,int数组默认初始化都是0呀,但删掉之后结果确实不对
             for (char c : s.toCharArray()){
                 count[c-'a']++;
             }
@@ -110,11 +111,13 @@ public class GroupAnagrams {
 
     @Test
     public void test(){
-        String s = "cat";
-        char[] cs = s.toCharArray();
-        Arrays.sort(cs);
-        String sortS = cs.toString();
-        System.out.println(sortS);
+//        String s = "cat";
+//        char[] cs = s.toCharArray();
+//        Arrays.sort(cs);
+//        String sortS = cs.toString();
+//        System.out.println(sortS);
+        int[] index = new int[2];
+        System.out.println(index[0] +", "+ index[1]);
     }
 
 }
